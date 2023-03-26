@@ -7,7 +7,6 @@ namespace StatelessService.Controllers
     [Route("[controller]")]
     public class IndexController : ControllerBase
     {
-        //#private static Meter _meter = new Meter("hs_ready", "1.0.0");
         private static readonly Counter _httpRequests = Metrics.CreateCounter("http_requests", "number of http requests");
 
         public IndexController()
