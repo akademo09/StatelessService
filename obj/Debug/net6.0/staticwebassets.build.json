@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8BwXq7bKIyWp1qXZ6JL5WWOjVHCm200v+L+BrxpeC50=",
+  "Source": "StatelessService",
+  "BasePath": "_content/StatelessService",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
