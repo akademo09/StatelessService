@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj": {}
+    "c:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj": {
+    "c:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
+        "projectUniqueName": "c:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
         "projectName": "StatelessService",
-        "projectPath": "C:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
+        "projectPath": "c:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
         "packagesPath": "C:\\Users\\AK\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AK\\source\\repos\\StatelessService\\obj\\",
+        "outputPath": "c:\\Users\\AK\\source\\repos\\StatelessService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

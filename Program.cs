@@ -1,5 +1,8 @@
 using Prometheus;
 using System.Diagnostics;
+using StatelessService.Constans;
+
+Constants.AppId = Guid.NewGuid();
 
 var builder = WebApplication.CreateBuilder(args);
 

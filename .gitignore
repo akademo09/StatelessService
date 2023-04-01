@@ -291,3 +291,12 @@ __pycache__/
 *.dll
 *.exe
 *.pdb
+obj/project.nuget.cache
+obj/project.nuget.cache
+obj/StatelessService.csproj.nuget.dgspec.json
+obj/Debug/net6.0/StatelessService.GeneratedMSBuildEditorConfig.editorconfig
+obj/Debug/net6.0/StatelessService.csproj.CoreCompileInputs.cache
+obj/Debug/net6.0/StatelessService.assets.cache
+obj/Debug/net6.0/project.razor.json
+obj/StatelessService.csproj.nuget.dgspec.json
+obj/project.nuget.cache

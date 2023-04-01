@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Prometheus;
+using StatelessService.Constans;bash
 
 namespace StatelessService.Controllers
 {
@@ -18,7 +19,7 @@ namespace StatelessService.Controllers
         {
             await Task.CompletedTask;
             _httpRequests.Inc(1);
-            return new JsonResult($"Serving home page at {DateTime.UtcNow}");
+            return new JsonResult($"{Constants.AppId}: Serving home page at {DateTime.UtcNow}");
         }
     }
 }

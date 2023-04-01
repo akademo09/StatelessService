@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Prometheus;
+using StatelessService.Constans;
 
 namespace StatelessService.Controllers;
 
@@ -14,7 +15,7 @@ public class HealthStatusController : ControllerBase
     {
         await Task.CompletedTask;
         _connectionCount.Inc();
-        return new JsonResult($"AddConnection: connection count = {_connectionCount.Value}");
+        return new JsonResult($"{Constants.AppId}: AddConnection: connection count = {_connectionCount.Value}");
     }
 
     [HttpGet("RemoveConnection")]
@@ -22,6 +23,6 @@ public class HealthStatusController : ControllerBase
     {
         await Task.CompletedTask;
         _connectionCount.Dec();
-        return new JsonResult($"RemoveConnection: connection count = {_connectionCount.Value}");
+        return new JsonResult($"{Constants.AppId}: RemoveConnection: connection count = {_connectionCount.Value}");
     }
 }
