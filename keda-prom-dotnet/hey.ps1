@@ -1,0 +1,1 @@
+﻿1..10000 | % { curl http://localhost:80/index }
