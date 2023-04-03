@@ -8,21 +8,29 @@ namespace StatelessService.Controllers;
 [Route("[controller]")]
 public class HealthStatusController : ControllerBase
 {
-    private Gauge _connectionCount = Metrics.CreateGauge("hs_connections", "number of connections");
+    private Gauge _readinessState = Metrics.CreateGauge("hs_ready", "Readiness state");
 
-    [HttpGet("AddConnection")]
+    [HttpGet("SetReady")]
     public async Task<IActionResult> AddConnection()
     {
         await Task.CompletedTask;
-        _connectionCount.Inc();
-        return new JsonResult($"{Constants.AppId}: AddConnection: connection count = {_connectionCount.Value}");
+        _readinessState.Inc();
+        return new JsonResult($"{Constants.AppId}: AddConnection: connection count = {_readinessState.Value}");
     }
 
-    [HttpGet("RemoveConnection")]
+    [HttpGet("SetNotReady")]
     public async Task<IActionResult> RemoveConnection()
     {
         await Task.CompletedTask;
-        _connectionCount.Dec();
-        return new JsonResult($"{Constants.AppId}: RemoveConnection: connection count = {_connectionCount.Value}");
+        _readinessState.Dec();
+        return new JsonResult($"{Constants.AppId}: RemoveConnection: connection count = {_readinessState.Value}");
+    }
+
+    [HttpGet("GetReadinessState")]
+    public async Task<IActionResult> GetReadinessState()
+    {
+        await Task.CompletedTask;
+        _readinessState.Inc();
+        return new JsonResult($"{Constants.AppId}: Readiness state = {_readinessState.Value}");
     }
 }

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Prometheus;
-using StatelessService.Constans;bash
+using StatelessService.Constans;
 
 namespace StatelessService.Controllers
 {
