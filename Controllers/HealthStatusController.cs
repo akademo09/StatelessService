@@ -11,10 +11,13 @@ public class HealthStatusController : ControllerBase
 {
     private IHostApplicationLifetime _applicationLifetime;
     private bool _ready = true;
+    private ILogger<HealthStatusController> _logger;
 
-    public HealthStatusController(IHostApplicationLifetime applicationLifrtime)
+    public HealthStatusController(IHostApplicationLifetime applicationLifrtime, ILogger<HealthStatusController> logger)
     {
+
         _applicationLifetime = applicationLifrtime;
+        _logger = logger;
     }
 
     private Gauge _readinessState = Metrics.CreateGauge("hs_ready", "Readiness state");
@@ -58,12 +61,14 @@ public class HealthStatusController : ControllerBase
     public async Task<IActionResult> Ready()
     {
         await Task.CompletedTask;
-        if(_ready)
+        if(_readinessState.Value > 0)
         {
+            _logger.LogInformation("Readiness probe is ready.");
             return new OkResult();
         }
         else
         {
+            _logger.LogInformation("Readiness probe is not ready.");
             return NotFound();
         }
     }

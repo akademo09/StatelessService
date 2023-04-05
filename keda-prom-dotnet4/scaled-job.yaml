@@ -20,12 +20,12 @@ spec:
             image: statelessservice_image
             #image: go-app:latest
             imagePullPolicy: IfNotPresent
-            #readinessProbe:
-              #httpGet:
-              #  path: /HealthStatus/Ready
-              #  port: 80
-              #initialDelaySeconds: 5
-              #periodSeconds: 5
+            readinessProbe:
+              httpGet:
+                path: /HealthStatus/Ready
+                port: 80
+              initialDelaySeconds: 20
+              periodSeconds: 10
         restartPolicy: Never
   pollingInterval: 30
   successfulJobsHistoryLimit: 5
