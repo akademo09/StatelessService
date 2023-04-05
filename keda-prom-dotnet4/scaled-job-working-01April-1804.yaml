@@ -1,0 +1,37 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: hello-keda-scaledobject
+spec:
+  jobTargetRef:
+    parallelism: 1
+    completions: 1
+    activeDeadlineSeconds: 14400
+    backoffLimit: 6
+    ttlSecondsAfterFinished: 100
+    template:
+      metadata:
+        labels:
+          app: hello-keda
+        name: hello-keda
+      spec:
+        containers:
+          - name: hello-keda
+            #image: statelessservice_image:1.1
+            image: go-app:latest
+            imagePullPolicy: IfNotPresent
+        restartPolicy: Never
+  pollingInterval: 30
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 5
+  maxReplicaCount: 10
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://prometheus-service.keda-demo.svc.cluster.local:9090
+        metricName: http_requests_total
+        threshold: "1"
+        query: sum(http_requests) OR vector(1)
+        #query: sum(http_requests)
+
+        

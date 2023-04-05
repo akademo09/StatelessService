@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/HeL85JOxJyjHSAFZ28z92eX9mv/4abYiS9kLMInnegrgWk9gBFKEU7mHoy9m1obu8jOoRxGAVC6m5nWz2OSUQ==",
+  "dgSpecHash": "zMmBfbFU8sMYM77BqwBWOkA7TjV3+JKl+E9mwQ6aks6zAFqfRU5SXkUZI7py8pMVzfVEWtfEmUeSCN3sVHt6Mg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
+  "projectFilePath": "C:\\Users\\AK\\source\\repos\\StatelessService\\StatelessService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AK\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\AK\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.0\\microsoft.extensions.configuration.3.1.0.nupkg.sha512",

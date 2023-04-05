@@ -1,0 +1,58 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: hello-keda-scaledobject
+spec:
+  jobTargetRef:
+    parallelism: 1
+    completions: 1
+    activeDeadlineSeconds: 14400
+    backoffLimit: 6
+    ttlSecondsAfterFinished: 100
+    template:
+      metadata:
+        labels:
+          app: go-prom-app
+        name: go-prom-app
+      spec:
+        containers:
+          - name: go-prom-app
+            image: statelessservice_image
+            #image: go-app:latest
+            imagePullPolicy: IfNotPresent
+            #readinessProbe:
+              #httpGet:
+              #  path: /HealthStatus/Ready
+              #  port: 80
+              #initialDelaySeconds: 5
+              #periodSeconds: 5
+        restartPolicy: Never
+  pollingInterval: 30
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 5
+  maxReplicaCount: 100
+  triggers:
+    - type: prometheus
+      metadata:
+        serverAddress: http://prometheus-service.keda-demo.svc.cluster.local:9090
+        metricName: http_requests_total
+        threshold: "1"
+        query: sum(hs_ready) OR vector(1)
+        #query: sum(http_requests)
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-prom-app-service
+  namespace: keda-demo
+  labels:
+    run: go-prom-app-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      protocol: TCP
+  selector:
+    app: go-prom-app
+
+        
