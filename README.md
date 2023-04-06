@@ -26,8 +26,8 @@ hey -n 10000 -m GET http://localhost:8080
 
 ## Running Prometheus with service monitors working
 
-See https://se7entyse7en.dev/posts/how-to-set-up-kubernetes-service-discovery-in-prometheus/
-git clone https://github.com/se7entyse7en/prometheus-k8s-service-discovery.git
-kubectl apply -f kubernetes/prometheus/namespace.yaml 
-kubectl apply -f kubernetes/prometheus
-kubectl port-forward --namespace monitoring deployment/prometheus 9090:9090
+See https://se7entyse7en.dev/posts/how-to-set-up-kubernetes-service-discovery-in-prometheus/  
+git clone https://github.com/se7entyse7en/prometheus-k8s-service-discovery.git  
+kubectl apply -f kubernetes/prometheus/namespace.yaml  
+kubectl apply -f kubernetes/prometheus  
+kubectl port-forward --namespace monitoring deployment/prometheus 9090:9090  
